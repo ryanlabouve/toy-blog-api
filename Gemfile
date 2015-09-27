@@ -8,9 +8,11 @@ gem 'rails-api'
 gem 'spring', :group => :development
 
 
+gem 'faker'
 gem 'sqlite3'
+gem 'active_model_serializers', '~> 0.8.1'
 
-
+gem 'rack-cors', :require => 'rack/cors'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
