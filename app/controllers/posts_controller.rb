@@ -4,9 +4,13 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.json
   def index
-    @posts = Post.all
-
-    render json: @posts
+    page_info = {
+      page: params[:page] || 1,
+      per_page: params[:per_page] || 5
+    }
+    Rails.logger.warn params[:page]
+    @posts = Post.page(page_info[:page]).per(page_info[:per_page])
+    render json: @posts, params: page_info
   end
 
   # GET /posts/1
